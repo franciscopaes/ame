@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Contato.css';
 
-// 🔥 Ícones modernos
+
 import {
   FaInstagram,
   FaLinkedinIn,
@@ -21,7 +21,7 @@ import {
  * Configure sua URL do Google Maps aqui
  */
 const MAPS_EMBED_URL =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.2471292100086!2d-47.21578152595069!3d-22.90425393777802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b9806c8bdd8d%3A0x7c589c95edd416bb!2sR.%20Cazuza%20-%20Jardim%20Sao%20Bento%2C%20Hortol%C3%A2ndia%20-%20SP%2C%2013187-093!5e0!3m2!1spt-BR!2sbr!4v1775524225055!5m2!1spt-BR!2sbr';
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.669925959848!2d-47.169843925953096!3d-22.851698235902116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b8d2f9b14563%3A0x75e59b7b401deacd!2sR.%20Ant%C3%B4nio%20Pinto%20Pereira%2C%20548%20-%20Jardim%20Sao%20Judas%20Tadeu%20(Nova%20Veneza)%2C%20Sumar%C3%A9%20-%20SP%2C%2013180-500!5e0!3m2!1spt-BR!2sbr!4v1776028743994!5m2!1spt-BR!2sbr';
 
 const SOCIALS = [
   {
