@@ -1,0 +1,107 @@
+/* =========================================
+   COOKIE BANNER — AME Engenharia Industrial
+   ========================================= */
+
+.cb {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #ffffff;
+  border-top: 3px solid #2255CC;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+}
+
+.cb__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cb__text {
+  flex: 1;
+  min-width: 280px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #374151;
+  margin: 0;
+}
+
+.cb__text a {
+  color: #2255CC;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cb__text a:hover {
+  color: #1A3A8F;
+}
+
+.cb__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cb__btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.cb__btn--outline {
+  background: transparent;
+  border-color: #2255CC;
+  color: #2255CC;
+}
+
+.cb__btn--outline:hover {
+  background: #EFF6FF;
+}
+
+.cb__btn--primary {
+  background: #2255CC;
+  border-color: #2255CC;
+  color: #ffffff;
+}
+
+.cb__btn--primary:hover {
+  background: #1A3A8F;
+  border-color: #1A3A8F;
+}
+
+@media (max-width: 768px) {
+  .cb__inner {
+    padding: 16px 20px;
+    gap: 14px;
+  }
+
+  .cb__text {
+    min-width: 100%;
+  }
+
+  .cb__actions {
+    width: 100%;
+  }
+
+  .cb__btn {
+    flex: 1;
+    text-align: center;
+  }
+}

@@ -1,0 +1,288 @@
+.contato {
+  position: relative;
+  padding: var(--section-pad);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26, 58, 143, 0.12) 0%, transparent 60%),
+    var(--dark-bg);
+}
+
+.mvv__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.mvv__header .section-subtitle {
+  margin: 0 auto;
+}
+
+.mvv__header .section-label {
+  justify-content: center;
+}
+
+.mvv__header .section-label::before { display: none; }
+
+
+.contato__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+/* Info cards */
+.contato__infos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.contato__info-card {
+  display: flex;
+  margin: 10px 0;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition: border-color 0.3s ease;
+}
+
+.contato__info-card:hover { border-color: rgba(59, 130, 246, 0.35); }
+
+.contato__info-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contato__info-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+  margin-bottom: 4px;
+}
+
+.contato__info-value {
+  font-size: 14px;
+  color: var(--silver-mid);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Socials */
+.contato__socials-title {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver-dark);
+  margin-bottom: 14px;
+}
+
+.contato__social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contato__social-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition: all 0.3s ease;
+}
+
+.contato__social-item:hover {
+  border-color: var(--social-color, rgba(59, 130, 246, 0.5));
+  background: rgba(255, 255, 255, 0.02);
+  transform: translateX(4px);
+}
+
+.contato__social-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--social-color, var(--blue-light));
+  flex-shrink: 0;
+}
+
+.contato__social-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.contato__social-info strong {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.contato__social-info span {
+  font-size: 12px;
+  color: var(--silver-dark);
+}
+
+.contato__social-arrow {
+  color: var(--silver-dark);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contato__social-item:hover .contato__social-arrow {
+  transform: translate(3px, -3px);
+  color: var(--social-color, var(--blue-light));
+}
+
+/* Form */
+.contato__form-wrap {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  padding: 44px 40px;
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+  position: relative;
+}
+
+.contato__form-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-glow);
+}
+
+.contato__form-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+
+.contato__success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #86EFAC;
+  margin-bottom: 20px;
+}
+
+.contato__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contato__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contato__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contato__field label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--silver-mid);
+}
+
+.contato__field input,
+.contato__field textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  resize: vertical;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.contato__field input::placeholder,
+.contato__field textarea::placeholder { color: var(--silver-dark); font-size: 13px; }
+
+.contato__field input:focus,
+.contato__field textarea:focus {
+  border-color: var(--blue-bright);
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.contato__submit {
+  width: 100%;
+  justify-content: center;
+  padding: 16px;
+  font-size: 15px;
+}
+
+/* Map */
+.contato__map-wrap {
+  border: 1px solid var(--dark-border);
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+}
+
+.contato__map-header {
+  padding: 14px 20px;
+  background: var(--dark-card);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.contato__map-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+}
+
+.contato__map {
+  width: 100%;
+  height: 400px;
+}
+
+.contato__map iframe {
+  filter: invert(90%) hue-rotate(180deg) saturate(0.8);
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .contato__grid { grid-template-columns: 1fr; }
+  .contato__row { grid-template-columns: 1fr; }
+  .contato__form-wrap { padding: 32px 24px; }
+}

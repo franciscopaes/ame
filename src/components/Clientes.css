@@ -1,0 +1,200 @@
+.clientes {
+  position: relative;
+  padding: var(--section-pad);
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 50%, rgba(26, 58, 143, 0.15) 0%, transparent 60%),
+    var(--dark-bg);
+}
+
+.clientes__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.clientes__header .section-label { justify-content: center; }
+.clientes__header .section-label::before { display: none; }
+
+.clientes__header .section-subtitle {
+  text-align: center;
+}
+
+.clientes__inner {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.clientes__slide {
+  width: 100%;
+  padding: 52px 56px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+  position: relative;
+  z-index: 1;
+}
+
+.clientes__slide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-glow);
+}
+
+.clientes__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.clientes__logo-placeholder {
+  width: 80px;
+  height: 80px;
+  background: var(--grad-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.clientes__logo-initial {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: white;
+}
+
+.clientes__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.clientes__name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.clientes__sector {
+  font-size: 16px;
+  color: var(--silver-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Controls */
+.clientes__controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.clientes__btn {
+  width: 48px;
+  height: 48px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-light);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition: all 0.3s ease;
+}
+
+.clientes__btn:hover {
+  background: rgba(34, 85, 204, 0.2);
+  border-color: var(--blue-bright);
+  color: white;
+}
+
+.clientes__dots {
+  display: flex;
+  gap: 10px;
+}
+
+.clientes__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dark-border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clientes__dot--active {
+  background: var(--blue-bright);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Thumbnails */
+.clientes__thumbs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.clientes__thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid var(--dark-border);
+  cursor: pointer;
+  padding: 14px 20px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.clientes__thumb--active,
+.clientes__thumb:hover {
+  opacity: 1;
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.clientes__thumb-initial {
+  width: 36px;
+  height: 36px;
+  background: var(--grad-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 900;
+  color: white;
+}
+
+.clientes__thumb-name {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--silver-mid);
+}
+
+@media (max-width: 768px) {
+  .clientes__slide { padding: 36px 28px; }
+  .clientes__name { font-size: 20px; }
+  .clientes__sector { font-size: 14px; }
+}

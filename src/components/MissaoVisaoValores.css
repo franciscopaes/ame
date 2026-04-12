@@ -1,0 +1,148 @@
+.mvv {
+  position: relative;
+  padding: var(--section-pad);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(26, 58, 143, 0.12) 0%, transparent 60%),
+    var(--dark-bg);
+}
+
+.mvv__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.mvv__header .section-subtitle {
+  margin: 0 auto;
+}
+
+.mvv__header .section-label {
+  justify-content: center;
+}
+
+.mvv__header .section-label::before { display: none; }
+
+.mvv__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.mvv__card {
+  position: relative;
+  padding: 40px 36px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  animation: fadeUp 0.7s ease both;
+}
+
+.mvv__card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-6px);
+}
+
+.mvv__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-glow);
+}
+
+.mvv__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.mvv__icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(34, 85, 204, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-bright);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.mvv__tag {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+  padding: 4px 12px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.mvv__card-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.mvv__card-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--silver-mid);
+}
+
+/* Values list */
+.mvv__values-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mvv__value-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--silver-mid);
+  line-height: 1.4;
+}
+
+.mvv__check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: rgba(34, 85, 204, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-bright);
+  border-radius: 2px;
+}
+
+/* Big background number */
+.mvv__card-number {
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  font-family: var(--font-display);
+  font-size: 100px;
+  font-weight: 900;
+  color: rgba(59, 130, 246, 0.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 900px) {
+  .mvv__cards { grid-template-columns: 1fr; }
+}

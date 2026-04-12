@@ -1,0 +1,234 @@
+/* =========================================
+   COOKIE BANNER — AME Engenharia Industrial
+   ========================================= */
+
+.cb {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #ffffff;
+  border-top: 3px solid #2563eb;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.10);
+}
+
+.cb__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* Texto */
+.cb__text {
+  flex: 1;
+  min-width: 280px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #374151;
+  margin: 0;
+}
+
+.cb__text a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+
+.cb__text a:hover {
+  color: #1d4ed8;
+}
+
+/* Botões */
+.cb__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.cb__btn {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.cb__btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: #6b7280;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: 500;
+}
+
+.cb__btn--ghost:hover {
+  color: #111827;
+}
+
+.cb__btn--outline {
+  background: transparent;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.cb__btn--outline:hover {
+  background: #eff6ff;
+}
+
+.cb__btn--primary {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+.cb__btn--primary:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+/* Gerenciar */
+.cb__manage {
+  width: 100%;
+}
+
+.cb__manage-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin: 0 0 12px;
+}
+
+.cb__toggles {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.cb__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  flex: 1 1 220px;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.cb__row:last-child {
+  border-right: none;
+}
+
+.cb__row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cb__row-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.cb__row-desc {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.cb__always {
+  font-size: 12px;
+  font-weight: 600;
+  color: #059669;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Toggle switch */
+.cb__switch {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  background: #d1d5db;
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.cb__switch--on {
+  background: #2563eb;
+}
+
+.cb__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  display: block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.cb__switch--on .cb__thumb {
+  transform: translateX(18px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cb__inner {
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  .cb__text {
+    min-width: 100%;
+  }
+
+  .cb__actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cb__btn {
+    text-align: center;
+    width: 100%;
+  }
+
+  .cb__btn--ghost {
+    text-align: left;
+    width: auto;
+  }
+
+  .cb__row {
+    flex: 1 1 100%;
+    border-right: none;
+  }
+}
