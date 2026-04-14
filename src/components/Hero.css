@@ -1,72 +1,42 @@
+/* ─── HERO ──────────────────────────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(26, 58, 143, 0.18) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(13, 31, 78, 0.3) 0%, transparent 60%),
-    var(--dark-bg);
+  background: #050d1f;
 }
 
-/* Gear background */
-.hero__gear-bg {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 52vw;
-  max-width: 780px;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.hero__gear {
-  position: absolute;
-  border-radius: 50%;
-}
-
-/* Large gear — centred on right side */
-.hero__gear--1 {
-  width: 72%;
-  top: 50%;
-  right: -8%;
-  transform: translateY(-50%);
-}
-
-/* Medium gear — top-right, interlocking */
-.hero__gear--2 {
-  width: 38%;
-  top: 8%;
-  right: 30%;
-}
-
-/* Small gear — bottom-right */
-.hero__gear--3 {
-  width: 28%;
-  bottom: 10%;
-  right: 8%;
-}
-
-/* Accent lines */
-.hero__accent-lines {
+/* Imagem de fundo desfocada
+   ─ Troque a URL pelo caminho da sua imagem, ex: url('/assets/planta.jpg')
+   ─ Recomendado: foto da planta industrial, maquinário ou equipe em campo */
+.hero__bg-image {
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  background-image: url('../assets/hero-bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px) brightness(0.6) saturate(0.8);
+  transform: scale(1.05); /* evita borda branca do blur nas bordas */
+  z-index: 0;
 }
 
-.hero__line {
+/* Overlay gradiente: escurece à esquerda (onde fica o texto)
+   e abre sutilmente à direita */
+.hero__overlay {
   position: absolute;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
-  height: 1px;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 13, 31, 0.96) 0%,
+    rgba(5, 13, 31, 0.80) 50%,
+    rgba(5, 13, 31, 0.45) 100%
+  );
+  z-index: 1;
 }
 
-.hero__line--1 { top: 25%; left: 0; right: 0; animation: slideRight 3s ease infinite alternate; }
-.hero__line--2 { top: 50%; left: 0; right: 30%; animation: slideRight 4s ease infinite alternate 0.5s; opacity: 0.5; }
-.hero__line--3 { top: 75%; left: 10%; right: 0; animation: slideRight 5s ease infinite alternate 1s; opacity: 0.3; }
-
-/* Content */
+/* ─── CONTENT ────────────────────────────────────────────────────── */
 .hero__content {
   position: relative;
   z-index: 2;
@@ -75,11 +45,11 @@
   max-width: 680px;
 }
 
+/* Badge */
 .hero__badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-display);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -88,9 +58,9 @@
   border: 1px solid rgba(59, 130, 246, 0.3);
   padding: 8px 18px;
   margin-bottom: 28px;
-  animation: fadeIn 0.8s ease forwards;
   background: rgba(59, 130, 246, 0.06);
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  animation: fadeIn 0.8s ease forwards;
 }
 
 .hero__badge-dot {
@@ -101,6 +71,7 @@
   animation: pulse-glow 2s ease infinite;
 }
 
+/* Título */
 .hero__title {
   font-family: var(--font-display);
   font-size: clamp(52px, 8vw, 96px);
@@ -119,6 +90,7 @@
   background-clip: text;
 }
 
+/* Subtítulo */
 .hero__sub {
   font-size: 17px;
   font-weight: 300;
@@ -128,6 +100,7 @@
   animation: fadeUp 0.8s ease 0.35s both;
 }
 
+/* Botões */
 .hero__actions {
   display: flex;
   gap: 16px;
@@ -136,7 +109,7 @@
   animation: fadeUp 0.8s ease 0.5s both;
 }
 
-/* Stats */
+/* ─── STATS ──────────────────────────────────────────────────────── */
 .hero__stats {
   display: flex;
   gap: 0;
@@ -180,87 +153,7 @@
   color: var(--silver-dark);
 }
 
-/* Scroll indicator */
-.hero__scroll {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 2;
-  animation: fadeIn 1s ease 1s both;
-}
-
-.hero__scroll span {
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--silver-dark);
-}
-
-.hero__scroll-icon {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--dark-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--blue-light);
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
-  animation: pulse-glow 2s ease infinite;
-}
-
-.hero__gear-bg {
-  position: absolute;
-  right: -4%;
-  top: 0;
-  bottom: 0;
-  width: 58vw;
-  max-width: 860px;
-  pointer-events: none;
-  overflow: visible;
-}
-
-.hero__gear {
-  position: absolute;
-  border-radius: 50%;
-  transform-origin: center center;
-  will-change: transform;
-}
-
-.hero__gear--1 {
-  width: 72%;
-  top: 50%;
-  right: -8%;
-  transform: translateY(-50%);
-}
-
-.hero__gear--2 {
-  width: 38%;
-  top: 8%;
-  right: 32%;
-}
-
-.hero__gear--3 {
-  width: 28%;
-  bottom: 10%;
-  right: 8%;
-}
-
-.gear-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
+/* ─── WHATSAPP ───────────────────────────────────────────────────── */
 .whatsapp-button {
   position: fixed;
   bottom: 25px;
@@ -273,18 +166,87 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   z-index: 999;
   transition: 0.3s;
 }
 
 .whatsapp-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* ─── NOISE / GRID (opcional, mantido do original) ───────────────── */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* VLibras */
+[vw] {
+  position: fixed !important;
+  bottom: 100px !important;
+  left: 10px !important;
+  z-index: 9999 !important;
+  top: unset !important;
+  display: block !important;
+}
+
+[vw] * {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+[vw-access-button] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+}
+
+[vw-access-button] img {
+  width: 40px !important;
+  height: 40px !important;
+  display: block !important;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .hero__gear-bg { display: none; }
-  .hero__stats { flex-wrap: wrap; gap: 20px; }
-  .hero__stat { border-right: none; padding-right: 0; margin-right: 0; flex: 1 1 40%; }
+  .hero__bg-image {
+    filter: blur(3px) brightness(0.35) saturate(0.6);
+  }
+
+  .hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 13, 31, 0.92) 0%,
+      rgba(5, 13, 31, 0.85) 100%
+    );
+  }
+
+  .hero__stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .hero__stat {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
+    flex: 1 1 40%;
+  }
 }
