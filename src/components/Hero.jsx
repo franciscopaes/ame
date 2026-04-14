@@ -8,11 +8,28 @@ export default function Hero() {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
   useEffect(() => {
-    // Injeta a div do VLibras direto no body (fora do React)
+    // 🔹 Função que inicializa o VLibras com retry
+    const initVLibras = () => {
+      try {
+        const VLibrasInstance =
+          window.VLibras?.default || window.VLibras;
+
+        if (VLibrasInstance && !window.vlibrasInitialized) {
+          new VLibrasInstance.Widget('https://vlibras.gov.br/app');
+          window.vlibrasInitialized = true;
+          console.log('VLibras iniciado ✅');
+        } else if (!window.vlibrasInitialized) {
+          setTimeout(initVLibras, 300); // tenta novamente
+        }
+      } catch (e) {
+        console.error('Erro VLibras:', e);
+      }
+    };
+
+    // 🔹 Cria a estrutura HTML do VLibras
     if (!document.querySelector('[vw]')) {
       const wrapper = document.createElement('div');
       wrapper.setAttribute('vw', '');
-      wrapper.classList.add('enabled');
       wrapper.innerHTML = `
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
@@ -22,31 +39,22 @@ export default function Hero() {
       document.body.appendChild(wrapper);
     }
 
-    // Injeta o script
+    // 🔹 Carrega o script
     if (!document.querySelector('script[src*="vlibras-plugin"]')) {
       const script = document.createElement('script');
       script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
       script.async = true;
 
       script.onload = () => {
-        if (window.VLibras && !window.vlibrasInitialized) {
-          new window.VLibras.Widget('https://vlibras.gov.br/app/vlibras-plugin.js');
-          window.vlibrasInitialized = true;
-        }
+        initVLibras();
       };
 
       document.body.appendChild(script);
+    } else {
+      // 🔹 Caso já exista (React recarregou)
+      initVLibras();
     }
 
-    return () => {
-      const wrapper = document.querySelector('[vw]');
-      if (wrapper) document.body.removeChild(wrapper);
-
-      const script = document.querySelector('script[src*="vlibras-plugin"]');
-      if (script) document.body.removeChild(script);
-
-      window.vlibrasInitialized = false;
-    };
   }, []);
 
   return (
@@ -92,6 +100,7 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* WhatsApp */}
         <a
           href="https://wa.me/5519995932083?text=Olá,%20gostaria%20de%20mais%20informações!"
           target="_blank"

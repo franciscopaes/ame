@@ -180,6 +180,24 @@ body {
   pointer-events: none;
 }
 
+[vw-access-button] {
+  display: block !important;
+  position: fixed !important;
+  bottom: 200px !important;
+  right: 20px !important;
+  width: 60px !important;
+  height: 60px !important;
+  z-index: 999999 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* garante que o container também apareça */
+[vw] {
+  display: block !important;
+  visibility: visible !important;
+}
+
 /* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
