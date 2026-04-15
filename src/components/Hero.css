@@ -196,34 +196,6 @@
   pointer-events: none;
 }
 
-/* VLibras */
-[vw] {
-  position: fixed !important;
-  bottom: 100px !important;
-  left: 10px !important;
-  z-index: 9999 !important;
-  top: unset !important;
-  display: block !important;
-}
-
-[vw] * {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-[vw-access-button] {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-}
-
-[vw-access-button] img {
-  width: 40px !important;
-  height: 40px !important;
-  display: block !important;
-}
-
 /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero__bg-image {

@@ -7,56 +7,6 @@ export default function Hero() {
   const scrollTo = (id) =>
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
-  useEffect(() => {
-    // 🔹 Função que inicializa o VLibras com retry
-    const initVLibras = () => {
-      try {
-        const VLibrasInstance =
-          window.VLibras?.default || window.VLibras;
-
-        if (VLibrasInstance && !window.vlibrasInitialized) {
-          new VLibrasInstance.Widget('https://vlibras.gov.br/app');
-          window.vlibrasInitialized = true;
-          console.log('VLibras iniciado ✅');
-        } else if (!window.vlibrasInitialized) {
-          setTimeout(initVLibras, 300); // tenta novamente
-        }
-      } catch (e) {
-        console.error('Erro VLibras:', e);
-      }
-    };
-
-    // 🔹 Cria a estrutura HTML do VLibras
-    if (!document.querySelector('[vw]')) {
-      const wrapper = document.createElement('div');
-      wrapper.setAttribute('vw', '');
-      wrapper.innerHTML = `
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-          <div class="vw-plugin-top-wrapper"></div>
-        </div>
-      `;
-      document.body.appendChild(wrapper);
-    }
-
-    // 🔹 Carrega o script
-    if (!document.querySelector('script[src*="vlibras-plugin"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
-      script.async = true;
-
-      script.onload = () => {
-        initVLibras();
-      };
-
-      document.body.appendChild(script);
-    } else {
-      // 🔹 Caso já exista (React recarregou)
-      initVLibras();
-    }
-
-  }, []);
-
   return (
     <>
       <section id="hero" className="hero">
